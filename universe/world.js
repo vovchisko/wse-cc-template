@@ -21,11 +21,11 @@ class World extends EventEmitter3 {
 
     init() {
 
-        server.master.spawn_core('world-1');
-        server.master.spawn_core('world-2');
-        server.master.spawn_core('world-3');
-        server.master.spawn_core('world-4');
-        server.master.spawn_core('world-5');
+        server.master.spawn_core('world-1', server.CORE_SCRIPT /* , {debug:9900} */);
+        server.master.spawn_core('world-2', server.CORE_SCRIPT);
+        server.master.spawn_core('world-3', server.CORE_SCRIPT);
+        server.master.spawn_core('world-4', server.CORE_SCRIPT);
+        server.master.spawn_core('world-5', server.CORE_SCRIPT);
 
         server.master.on('join', (client) => {
             client.send('stats', server.master.sys_info());

@@ -3,6 +3,7 @@ const NodeStatic = require('node-static');
 const app = new NodeStatic.Server('./dist', {cache: 0});
 const server = {};
 
+
 exports = module.exports = server;
 
 const tools = server.tools = require('./services/tools');
@@ -11,6 +12,10 @@ const mail = server.mail = new MailService(server.cfg.email);
 const log = server.log = require('./services/clog');
 const world = server.world = require('./universe/world').attach(server);
 const db = server.db = require('./services/database').connect(cfg.db, main);
+
+server.CORE_SCRIPT =  './universe/inst.js';
+
+
 
 const API = {
     'signup': require('./api/signup'),
@@ -82,7 +87,6 @@ const {WseCCMaster} = require('wse-cc');
 const master = server.master = new WseCCMaster({server: webServer}, on_player_auth, new CustomProtocol());
 master.name = 'MASTER';
 master.logging = true;
-master.default_core_cmd = './universe/inst.js';
 
 // all ws-logic about users
 master.on('join', (client) => server.log('JOIN:', client.id));

@@ -3,7 +3,7 @@
 Simple example of [``wse-cc``](https://github.com/vovchisko/wse-cc) usage in milti-server situation. Based on ``vue-webpack`` template.
 May be useful for multiplayer games prototyping or if your project simply talking ``ws`` a lot.
 
-**BEWARE! BEWAAAAAAARE!** - this template probably not quite ready for production. Careful there.
+## THIS TEMPLATE IS OUTDATED AND NOT COMPATIBLE WITH A NEW VERSIONS OF ``WSE-CC``
 
 **Includes:**
 - User auth/register/reset API.
